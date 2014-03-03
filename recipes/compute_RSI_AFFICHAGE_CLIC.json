@@ -1,0 +1,25 @@
+{
+  "partitionDeps": [
+    {
+      "in": "RSI_AFFICHAGE_CLIC_raw",
+      "out": "RSI_AFFICHAGE_CLIC",
+      "idim": "day",
+      "odim": "month",
+      "func": "whole_month",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "RSI_AFFICHAGE_CLIC_raw"
+  ],
+  "outputs": [
+    "RSI_AFFICHAGE_CLIC"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "hive",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "RSI"
+  ]
+}

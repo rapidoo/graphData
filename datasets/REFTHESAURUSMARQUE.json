@@ -1,0 +1,70 @@
+{
+  "name": "REFTHESAURUSMARQUE",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_root",
+    "path": "/input_data/referentiels/marques"
+  },
+  "checks": [],
+  "managed": false,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "escapeChar": "\\",
+    "quoteChar": "\"",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "true",
+    "separator": "|"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "QUIQUOI",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "IDMARQUE",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NOMMARQUE",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "SOURCE",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "STATUS",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "DATEREFERENCEMENT",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "HEUREREFERENCEMENT",
+        "type": "string",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "ignoreNonMatchingFile": false,
+    "dimensions": []
+  },
+  "tags": [
+    "referentiel",
+    "marque"
+  ]
+}

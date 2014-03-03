@@ -1,0 +1,28 @@
+{
+  "partitionDeps": [
+    {
+      "in": "evenement_filter",
+      "out": "PDM_event",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "evenement_filter",
+    "pdm_filter"
+  ],
+  "outputs": [
+    "PDM_event"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "dev",
+    "BUC",
+    "filter"
+  ]
+}

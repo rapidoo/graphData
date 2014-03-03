@@ -1,0 +1,66 @@
+{
+  "name": "AUDIENCE_MOBILE_CBI",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_managed",
+    "path": "/AUDIENCE_MOBILE_CBI"
+  },
+  "checks": [],
+  "managed": true,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "arrayItemSeparator": "\u0002",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "\t",
+    "mapKeySeparator": "\u0002"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "ANNEE",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "MOIS",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NB_RECHERCHES_PROS",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "NB_AFFICHAGES_PROS",
+        "type": "int",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "filePathPattern": "/%Y/%M/%D/.*",
+    "ignoreNonMatchingFile": false,
+    "dimensions": [
+      {
+        "name": "day",
+        "type": "time",
+        "params": {
+          "period": "DAY"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "Cube",
+    "dev",
+    "Mobile",
+    "rapport divers"
+  ]
+}

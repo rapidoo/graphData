@@ -1,0 +1,26 @@
+{
+  "partitionDeps": [
+    {
+      "in": "mobile_requete",
+      "out": "requete_geolive",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "mobile_requete"
+  ],
+  "outputs": [
+    "requete_geolive"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "GEOLIVE",
+    "filter"
+  ]
+}

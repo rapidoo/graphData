@@ -1,0 +1,101 @@
+{
+  "name": "geolive",
+  "type": "HDFS",
+  "params": {
+    "connection": "hadoop",
+    "path": "${hdfsroot}/geolive"
+  },
+  "checks": [],
+  "managed": true,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "arrayItemSeparator": "\u0002",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "|",
+    "mapKeySeparator": "\u0002"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "ts",
+        "type": "bigint",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "date_ts",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "service",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "rubriques",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "quiQuoi",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "ou",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "ou_loc",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "ou_dept",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "ou_region",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "ou_arrondissement",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "filePathPattern": "/dt=%Y-%M-%D/.*",
+    "dimensions": [
+      {
+        "name": "time",
+        "type": "time",
+        "params": {
+          "field": "time",
+          "period": "DAY"
+        }
+      }
+    ]
+  },
+  "tags": []
+}

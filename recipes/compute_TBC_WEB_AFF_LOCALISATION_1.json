@@ -1,0 +1,38 @@
+{
+  "partitionDeps": [
+    {
+      "in": "requete_pro",
+      "out": "TBC_WEB_AFF_LOCALISATION_BlocLR_Code",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "blocLR_pro",
+      "out": "TBC_WEB_AFF_LOCALISATION_BlocLR_Code",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "requete_pro",
+    "blocLR_pro"
+  ],
+  "outputs": [
+    "TBC_WEB_AFF_LOCALISATION_BlocLR_Code",
+    "TBC_WEB_AFF_LOCALISATION_BlocLR_XY"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "BUC",
+    "mobile",
+    "AFF_LOCALISATION",
+    "RSI"
+  ]
+}

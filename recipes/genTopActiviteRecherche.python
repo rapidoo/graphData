@@ -1,0 +1,228 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*- 
+
+import dataiku
+from dataiku import pandasutils as pdu
+import pandas as pd
+import csv
+import xlwt
+from datetime import datetime
+from functools import partial
+import numpy as np
+
+###################################################################################################################################
+# VAR GLOBALES
+###################################################################################################################################
+totalRecherche = 0
+
+###################################################################################################################################
+# UTILS
+###################################################################################################################################
+
+# fonction qui crée deux colonnes, une qui donne le nombre de recherche par activité pour un groupe
+# période/codeAN9/TypeRecherche, l'autre le nombre d'activité croisé.
+def countActiviteByTypeRecherche(grp):
+    if grp['typeRecherche'].iloc[0] == 'Activité' :
+        grp['countAllActivite'] = grp.countActivite.sum()
+    else :
+        grp['countAllCroisee'] = grp.countActivite.sum()
+    return grp
+
+# Additionne toutes les activités pour un groupe période/codeAN9 (par activité et croisé confondu)
+def add_recherches(grp):
+    grp['Recherches'] = grp['countActivite'].sum()
+    return grp
+
+# Traitement qui ajoute 4 colonnes :
+# - la part total de recherche en % pour le groupe par rapport au total du mois (par activité et croisé confondu)
+# - La période qui est juste la concaténation de l'année et du mois
+# - La parte de recherche activité et croisé qui donne la répartition pour ce groupe entre ces deux modes de recherche.
+def format_final(grp) :
+    # Pourcentage_total sur nb de recherche
+    if totalRecherche != 0 :
+        grp['Pourcentage_total'] = str(int((100 / totalRecherche) * grp['Recherches'].iloc[0])) + '%'
+    else :
+        grp['Pourcentage_total'] = '0%'
+    
+    # période
+    grp['periode'] = "%s-M%s" %(grp.annee.iloc[0],grp.mois.iloc[0])
+    
+    # % part recherche
+    if grp['typeRecherche'].iloc[0] == 'Activité' :
+        grp['%RechActivité'] = (100.0 / grp['Recherches'].iloc[0]) * grp['countAllActivite'].iloc[0]
+    else :
+        grp['%RechCroisée'] = (100.0 / grp['Recherches'].iloc[0]) * grp['countAllCroisee'].iloc[0]
+    return grp
+
+# La fonction prend un groupe de valeur en entrée, float ou float64, et retourne en priorité la valeur différente de null.
+# S'il n'y en a pas, retourne 0% ou 0 selon le type en entrée. 
+def choseNotNullValue(grp):
+    if type(grp.iloc[0]) == np.int64 :
+        for val in  grp:
+            if val > 0:
+                return val
+        return val
+    else :
+        for val in  grp:
+            if(type(val) == np.float64 and pd.notnull(val)):
+                return val
+        return 0.0
+
+# ajoute %
+def addPercent(line):
+    return str(int(line))+'%'
+     
+###################################################################################################################################
+# Génération DataFrame
+###################################################################################################################################
+
+#fonction qui génère le dataframe pour un onglet
+def generateDataframeOnglet(df_param):
+
+    # enlever les NaN
+    df_fillna = df_param.fillna('')
+    
+    # somme les countActivité par groupe ('annee','mois','codeAN9','rubrique','categorie','typeRecherche')
+    df_global_grouped = df_fillna.groupby(['annee','mois','codeAN9'
+                                           ,'rubrique','categorie','typeRecherche']).apply(countActiviteByTypeRecherche)
+    
+    # total des activités du mois
+    totalRecherche = np.int64(df_global_grouped.countActivite.sum())
+    
+    # On remplace les NaN par des 0
+    df_global_grouped_fill = df_global_grouped.fillna(0)
+    
+    # transforme les count en int
+    df_global_grouped_fill[['countAllActivite'
+                            ,'countAllCroisee']] = df_global_grouped_fill[['countAllActivite'
+                                                                           ,'countAllCroisee']].astype(int)
+    
+    # ajout colonne Recherche qui comptabilise tous les count pour un codeAN9 (par activité et croisé confondu)
+    df_global_rech = df_global_grouped_fill.groupby(['annee'
+                                                     ,'mois'
+                                                     ,'codeAN9'
+                                                     ,'rubrique'
+                                                     ,'categorie']).apply(add_recherches)
+    
+    # formatage de : période, % par typeRecherche et %total
+    df_format = df_global_rech.groupby(['annee','mois','codeAN9'
+                                        ,'rubrique','categorie','typeRecherche']).apply(format_final)
+    
+    # suppresion de colonnes inutiles
+    df_drop = df_format.drop(['typeOu','countActivite','typeRecherche'],axis=1)
+    
+    
+    # On vire les colonnes dupliquée (par exemple : 2 lignes pour activité croisée pour un code AN9
+    df_drop_dup = df_drop.drop_duplicates(cols=['Pourcentage_total','Recherches'
+                                                ,'codeAN9','rubrique'
+                                                ,'categorie','countAllActivite'
+                                                ,'countAllCroisee','periode'
+                                                ,'mois','annee'
+                                                ,'%RechActivité','%RechCroisée'], take_last=False)
+    
+    # la fonction agg va fusionner les lignes 'par activité' et 'croisée' pour chaque code AN9
+    df_unstacked = df_drop_dup.groupby(['periode','mois','annee'
+                                        ,'codeAN9','rubrique'
+                                        ,'categorie','Pourcentage_total'
+                                        ,'Recherches']).agg({'countAllActivite' : [choseNotNullValue]
+                                                             ,'%RechActivité': [choseNotNullValue]
+                                                             , 'countAllCroisee' : [choseNotNullValue]
+                                                             , '%RechCroisée': [choseNotNullValue]})
+    
+    # remise à plat + virer colonne inutile
+    df_stacked = df_unstacked.stack().reset_index().drop('level_8',axis=1)
+    # passer les poucentage en int
+    df_stacked[['%RechActivité','%RechCroisée']] = df_stacked[['%RechActivité','%RechCroisée']].astype(int)
+    
+    df_stacked['%RechActivité'] = df_stacked['%RechActivité'].apply(addPercent)
+    df_stacked['%RechCroisée'] = df_stacked['%RechCroisée'].apply(addPercent)
+
+    return df_stacked.sort(['Recherches'], ascending=0)
+
+###################################################################################################################################
+# Ecriture dans XLS
+###################################################################################################################################
+
+# ecrire une cellule
+def write_col( ws, ligne, col, val):
+        ws.write( ligne, col, val,style1)
+
+# ecrire les colonnes dans un onglet excel
+def write_libelle(libelle, sheet):
+    i = 0
+    for lib in libelle :
+            sheet.write(0, i, lib,style0)
+            i = i +1
+
+# ecire une feuille = un onglet
+def write_sheet(sheet, dataframeOnglet):
+    
+    # colonnes
+    write_libelle(libelle, sheet)
+    
+    ligne = 1
+    for indice, row in dataframeOnglet.iterrows():
+
+        ## ecriture de la ligne
+        write_col(sheet, ligne, 0, row['annee'])
+        write_col(sheet, ligne, 1, row['mois'])
+        write_col(sheet, ligne, 2, row['periode'])
+        write_col(sheet, ligne, 3, row['codeAN9'])
+        write_col(sheet, ligne, 4, row['rubrique'])
+        write_col(sheet, ligne, 5, row['categorie'])
+        write_col(sheet, ligne, 6, row['Recherches'])
+        write_col(sheet, ligne, 7, row['Pourcentage_total'])
+        write_col(sheet, ligne, 8, row['countAllActivite'])
+        write_col(sheet, ligne, 9, row['%RechActivité'])
+        write_col(sheet, ligne, 10, row['countAllCroisee'])
+        write_col(sheet, ligne, 11, row['%RechCroisée'])
+        ligne = ligne + 1
+        
+###################################################################################################################################
+# MAIN
+###################################################################################################################################
+        
+# constantes
+libelle = ['Année','Mois','Période','Code AN9','Activité','Thématique','Recherches','% total'
+           ,'Recherches par activité','Part recherches par activité','Recherche croisées'
+           ,'Part recherches croisées']
+
+# load le KPI (managed dataset)
+mydataset = dataiku.Dataset("KPI_TOP_Activite_recherche")
+
+#l'option infer_with_pandas False permet de conserver les types du dataset managé
+mydataset_df = mydataset.get_dataframe(infer_with_pandas=False)
+
+# font
+font0 = xlwt.Font()
+font0.name = 'Times New Roman'
+font0.colour_index = 0
+font0.bold = True
+
+# styles
+style0 = xlwt.XFStyle()
+style0.font = font0
+
+style1 = xlwt.XFStyle()
+
+# encoding UTF-8
+wb = xlwt.Workbook(encoding='utf-8')
+
+# ajout onglet
+ws_global = wb.add_sheet('global')
+ws_geolocalisee = wb.add_sheet('géolocalisée')
+ws_classique = wb.add_sheet('classique')
+
+# ici on filtre le mois, l'année
+# un DF par onglet
+df_onlet_global = generateDataframeOnglet(mydataset_df)
+df_onlet_geoloc = generateDataframeOnglet(mydataset_df[mydataset_df['typeOu']=='Géo-localisée'])
+df_onlet_classique = generateDataframeOnglet(mydataset_df[mydataset_df['typeOu']=='Classique'])
+
+# ecrire dans onglet
+write_sheet(ws_global, df_onlet_global)
+write_sheet(ws_geolocalisee, df_onlet_geoloc)
+write_sheet(ws_classique, df_onlet_classique)
+
+# sauvegarde fichier sortie excel
+wb.save('/home/bia/kpi/KPI_DSEM_TOP_Activite_recherche.xls')

@@ -1,0 +1,181 @@
+{
+  "name": "RefLieu",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_root",
+    "path": "/input_data/referentiels/ref_lieu"
+  },
+  "checks": [],
+  "managed": false,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "escapeChar": "\\",
+    "quoteChar": "\"",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "\t"
+  },
+  "schema": {
+    "userModified": true,
+    "columns": [
+      {
+        "name": "IDPAYS",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "IDLOCALITE",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NUMEROARRONDISSEMENT",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "IDDEPARTEMENT",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CODEPOSTAL",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CODELIEU",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "FLAGLOCALITE",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "FLAGDEPARTEMENT",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "FLAGREGION",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "FLAGARRONDISSEMENT",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "FLAGRUE",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "CODEDEPARTEMENT",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NUMEROLOCALITE",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NOMENMAJUSCULES",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "PALIERPOPULATION",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "ANNEERECENSEMENT",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "POPULATION",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NOMENMINUSCULES",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "ABSCISSE",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "ORDONNEE",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "LONGITUDE",
+        "type": "float",
+        "maxLength": 1000
+      },
+      {
+        "name": "LATITUDE",
+        "type": "float",
+        "maxLength": 1000
+      },
+      {
+        "name": "SOURCE",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "STATUS",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NOMLOCALITE",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NOMDEPARTEMENT",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NOMREGION",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "DATEREFERENCEMENT",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "HEUREREFERENCEMENT",
+        "type": "string",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "filePathPattern": "",
+    "ignoreNonMatchingFile": false,
+    "dimensions": []
+  },
+  "tags": [
+    "referentiel",
+    "GEOLIVE"
+  ]
+}

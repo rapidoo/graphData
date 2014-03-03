@@ -1,0 +1,26 @@
+{
+  "partitionDeps": [
+    {
+      "in": "mobile_evenement",
+      "out": "evenement_filter",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "mobile_evenement"
+  ],
+  "outputs": [
+    "evenement_filter"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "dev",
+    "filter"
+  ]
+}

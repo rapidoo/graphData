@@ -1,0 +1,220 @@
+{
+  "name": "rubriques",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_root",
+    "path": "/input_data/referentiels/rubriques"
+  },
+  "checks": [],
+  "managed": false,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "escapeChar": "\\",
+    "quoteChar": "\"",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "|"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "col_0",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_1",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_2",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_3",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_4",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_5",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_6",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_7",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_8",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_9",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_10",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_11",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_12",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_13",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_14",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_15",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_16",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_17",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_18",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_19",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_20",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_21",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_22",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_23",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_24",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_25",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_26",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_27",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_28",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_29",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_30",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_31",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_32",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_33",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_34",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_35",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_36",
+        "type": "string",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "ignoreNonMatchingFile": false,
+    "dimensions": []
+  },
+  "tags": [
+    "referentiel",
+    "GEOLIVE"
+  ]
+}

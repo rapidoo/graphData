@@ -1,0 +1,43 @@
+{
+  "partitionDeps": [
+    {
+      "in": "BlocLR_Code_RSI_AFF_raw",
+      "out": "RSI_AFFICHAGE_CLIC_raw",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "BlocLR_XY_RSI_AFF_raw",
+      "out": "RSI_AFFICHAGE_CLIC_raw",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "PDM_event",
+      "out": "RSI_AFFICHAGE_CLIC_raw",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "BlocLR_Code_RSI_AFF_raw",
+    "BlocLR_XY_RSI_AFF_raw",
+    "PDM_event"
+  ],
+  "outputs": [
+    "RSI_AFFICHAGE_CLIC_raw"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "RSI"
+  ]
+}

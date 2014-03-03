@@ -1,0 +1,78 @@
+{
+  "name": "QUOIQUI_MONTH",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_managed",
+    "path": "/QUOIQUI_MONTH"
+  },
+  "checks": [],
+  "managed": true,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "arrayItemSeparator": "\u0002",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "\t",
+    "mapKeySeparator": "\u0002"
+  },
+  "schema": {
+    "userModified": true,
+    "columns": [
+      {
+        "name": "NO_CLI",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CO_SUPPORT",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "CO_TYPESTAT",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CO_AN9",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "LI_DENOM",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "DA_COMPTEUR",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NO_COMPTEUR",
+        "type": "int",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "filePathPattern": "/%Y/%M/.*",
+    "ignoreNonMatchingFile": false,
+    "dimensions": [
+      {
+        "name": "month",
+        "type": "time",
+        "params": {
+          "period": "MONTH"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "BUC"
+  ]
+}

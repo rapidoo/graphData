@@ -1,0 +1,361 @@
+{
+  "name": "JMC_TEST",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_managed",
+    "path": "/JMC_TEST"
+  },
+  "checks": [],
+  "managed": true,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "arrayItemSeparator": "\u0002",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "\t",
+    "mapKeySeparator": "\u0002"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "H",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "IdClient",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "TypeClient",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "VersionClient",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "Partenaire",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "Operateur",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "VisitorID",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "VersionOS",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "TypeOS",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "Navigateur",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "IDSession",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "IDRecherche",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "IDRequete",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "SourceRecherche",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "methodeSaisieOu",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "methodeSaisieQuiQuoi",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "Portail",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "Handset",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "PageAffichee",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "Localite",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "precision",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "Horodate",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "Duree",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NombreRequetesPertimm",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NombreRequetesWSSCG",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NombreRequetesWSYES",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NombreRequetesWSQuiDonc",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NombreDeBlocsDisponibles",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NombreDeBlocsRemontees",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "QuiQuoiSaisi",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "QuiquoiProduit",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "MnemoniqueSaisi",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "ListeCodesAN9Demandes",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "DenominationProduite",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "OuSaisi",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "XEnvoyeParClient",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "YEnvoyeParClient",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "PrecisionEnvoyeParClient",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CodeLieuEnvoyeParClient",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CritereDegradationDemandeeParClientT",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CategAbonneDemandeeParClient",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "ProximiteDemandeeParClient",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "ListeCodesFiltresDemandeeParClient",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "ListeSuggestionsDemandees",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "IdSuggestionDemandeeParClient",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "TypeTriDemandeeParClient",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "IndexPageDemandeeParClient",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CritereR",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CritereT",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CritereL",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "UTLP",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "UTLG",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "UTLS",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "UTLC",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CodesLieuxRecherche",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CodesAN9Recherche",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "TypeZoneComprehensionQuiQuoi",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "ValeurComprehensionQuiQuoi",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "ListeCritComplRecherche",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CodeRetour",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "niveauSearch",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "IdCompteUtilisateur",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "RayonInitial",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "RayonFinal",
+        "type": "string",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "filePathPattern": "/%Y/%M/%D/.*",
+    "ignoreNonMatchingFile": false,
+    "dimensions": [
+      {
+        "name": "day",
+        "type": "time",
+        "params": {
+          "period": "DAY"
+        }
+      }
+    ]
+  },
+  "tags": []
+}

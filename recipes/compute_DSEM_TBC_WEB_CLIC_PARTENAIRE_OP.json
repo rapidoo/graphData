@@ -1,0 +1,41 @@
+{
+  "partitionDeps": [
+    {
+      "in": "CLIC_PARTENAIRE_MONTH_ALADIN",
+      "out": "DSEM_TBC_WEB_CLIC_PARTENAIRE_OP",
+      "idim": "month",
+      "odim": "month",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "CLIC_PARTENAIRE_MONTH_MIDAS",
+      "out": "DSEM_TBC_WEB_CLIC_PARTENAIRE_OP",
+      "idim": "month",
+      "odim": "month",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "CLIC_PARTENAIRE_MONTH_ESTIME",
+      "out": "DSEM_TBC_WEB_CLIC_PARTENAIRE_OP",
+      "idim": "month",
+      "odim": "month",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "CLIC_PARTENAIRE_MONTH_ALADIN",
+    "CLIC_PARTENAIRE_MONTH_MIDAS",
+    "CLIC_PARTENAIRE_MONTH_ESTIME"
+  ],
+  "outputs": [
+    "DSEM_TBC_WEB_CLIC_PARTENAIRE_OP"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "hive",
+  "params": {},
+  "updateUser": "admin",
+  "tags": []
+}

@@ -1,0 +1,25 @@
+{
+  "partitionDeps": [
+    {
+      "in": "BlocLR_Code_2",
+      "out": "BlocLR_Code_3",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "BlocLR_Code_2"
+  ],
+  "outputs": [
+    "BlocLR_Code_3"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "hive",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+	"AFF_LOCALISATION"
+  ] 
+}

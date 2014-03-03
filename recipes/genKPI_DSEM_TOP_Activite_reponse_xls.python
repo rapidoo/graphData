@@ -1,0 +1,229 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*- 
+
+import dataiku
+from dataiku import pandasutils as pdu
+import pandas as pd
+import csv
+import xlwt
+from datetime import datetime
+
+# load le KPI (managed dataset)
+mydataset = dataiku.Dataset("KPI_DSEM_TOP_Activite_reponse")
+mydataset_df = mydataset.get_dataframe()
+liste =  mydataset_df.columns
+
+all = mydataset_df.groupby('codeAN9') 
+geoloc = mydataset_df[mydataset_df['typeOu']=='Géo-localisée'].groupby('codeAN9') 
+classique = mydataset_df[mydataset_df['typeOu']=='Classique'].groupby('codeAN9') 
+proxy = mydataset_df[(mydataset_df['typeOu']=='A proximité')].groupby('codeAN9') 
+
+libelle=['toutes recherches', 'Code AN9', 'Activité', 'Thématique', 'Métier', 
+         'janvier', '% total janvier', 'février', '% total février', 'mars', '% total mars', 'avril', '% total avril', 'mai', '% total mai', 'juin', '% total juin',
+         'juillet', '% total juillet', 'août', '% total août', 'septembre', '% total septembre', 'octobre', '% total octobre',
+         'novembre', '% total novembre', 'décembre', '% total décembre', 
+         'Recherches', '% total',	'Recherches par activité',
+         'Part recherche par activité', 'Recherches croisées', 'Part recherches croisées', 'Recherches par nom',
+         'Part recherches par nom', '', '',
+         'recherches par activité', 'Code AN9', 'Activité', 'Thématique', 'Métier', 
+         'janvier', '% total janvier', 'février', '% total février', 'mars', '% total mars', 'avril', '% total avril', 'mai', '% total mai', 'juin', '% total juin',
+         'juillet', '% total juillet', 'août', '% total août', 'septembre', '% total septembre', 'octobre', '% total octobre',
+         'novembre', '% total novembre', 'décembre', '% total décembre', 
+         'Recherches', '% total', '', '',
+         'recherches croisées', 'Code AN9', 'Activité', 'Thématique', 'Métier',
+         'janvier', '% total janvier', 'février', '% total février', 'mars', '% total mars', 'avril', '% total avril', 'mai', '% total mai', 'juin', '% total juin',
+         'juillet', '% total juillet', 'août', '% total août', 'septembre', '% total septembre', 'octobre', '% total octobre',
+         'novembre', '% total novembre', 'décembre', '% total décembre', 
+         'Recherches', '% total', '', '',
+         'recherches par nom', 'Code AN9', 'Activité', 'Thématique', 'Métier',
+         'janvier', '% total janvier', 'février', '% total février', 'mars', '% total mars', 'avril', '% total avril', 'mai', '% total mai', 'juin', '% total juin',
+         'juillet', '% total juillet', 'août', '% total août', 'septembre', '% total septembre', 'octobre', '% total octobre',
+         'novembre', '% total novembre', 'décembre', '% total décembre', 
+         'Recherches', '% total']
+
+def write_col( ws, ligne, col, val):
+        ws.write( ligne, col, val)
+        
+def write_libelle(libelle, ws):
+    i = 0
+    for lib in libelle:
+            ws.write(0, i, lib)
+            i = i +1
+          
+def write_sheet( ws, ds ):
+    
+    write_libelle( libelle, ws)
+    
+    ligne = 1
+    total_gen = getTotalGen(ds)
+        
+    for index, row in ds:
+
+        write_col(ws, ligne, 0, row['annee'].values[0])
+        write_col(ws, ligne, 1, row['codeAN9'].values[0])
+        write_col(ws, ligne, 2, row['rubrique'].values[0])
+        write_col(ws, ligne, 3, row['categorie'].values[0])
+        write_col(ws, ligne, 4, row['metier'].values[0])
+        
+        write_col(ws, ligne, 39, row['annee'].values[0])
+        write_col(ws, ligne, 40, row['codeAN9'].values[0])
+        write_col(ws, ligne, 41, row['rubrique'].values[0])
+        write_col(ws, ligne, 42, row['categorie'].values[0])
+        write_col(ws, ligne, 43, row['metier'].values[0])
+        
+        total = getCount(row)
+        total_activite = getCountByType(row, 'Activité')
+        total_croise = getCountByType(row, 'Croisée')
+        total_nom = getCountByType(row, 'Nom')
+        
+        for i in [0,1,2,3,4,5,6,7,8,9,10,11]:
+            countbyMois = getCountByMois(row, (i+1))
+            write_col(ws, ligne, (5+i*2), countbyMois)
+            write_col(ws, ligne, (6+i*2), getPoucent(countbyMois, total))
+                
+        write_col(ws, ligne, 29, total )
+        
+        write_col(ws, ligne, 30, getPoucent(total, total_gen) )
+                
+        write_col(ws, ligne, 31, total_activite) 
+        write_col(ws, ligne, 32, getPoucent(total_activite, total) )
+
+        write_col(ws, ligne, 33, total_croise)
+        write_col(ws, ligne, 34, getPoucent(total_croise, total))
+        
+        write_col(ws, ligne, 35, total_nom)
+        write_col(ws, ligne, 36, getPoucent(total_nom, total))
+        
+        for i in [0,1,2,3,4,5,6,7,8,9,10,11]:
+            countByActByMois = getCountByTypeByMois(row, 'Activité', (i+1))
+            write_col(ws, ligne, (44+i*2), countByActByMois)
+            write_col(ws, ligne, (45+i*2), getPoucent(countByActByMois, total_activite))
+            
+        
+        write_col(ws, ligne, 68, total_activite)
+        write_col(ws, ligne, 69, getPoucent(total_activite, total))
+                    
+        write_col(ws, ligne, 72, row['annee'].values[0])
+        write_col(ws, ligne, 73, row['codeAN9'].values[0])
+        write_col(ws, ligne, 74, row['rubrique'].values[0])
+        write_col(ws, ligne, 75, row['categorie'].values[0])
+        write_col(ws, ligne, 76, row['metier'].values[0])
+        
+        for i in [0,1,2,3,4,5,6,7,8,9,10,11]:
+            countByActByMois = getCountByTypeByMois(row, 'Croisée', (i+1))
+            write_col(ws, ligne, (77+i*2), countByActByMois)
+            write_col(ws, ligne, (78+i*2), getPoucent(countByActByMois, total_croise))
+            
+        
+        write_col(ws, ligne, 101, total_croise)
+        write_col(ws, ligne, 102, getPoucent(total_croise, total))
+        
+        write_col(ws, ligne, 105, row['annee'].values[0])
+        write_col(ws, ligne, 106, row['codeAN9'].values[0])
+        write_col(ws, ligne, 107, row['rubrique'].values[0])
+        write_col(ws, ligne, 108, row['categorie'].values[0])
+        write_col(ws, ligne, 109, row['metier'].values[0])
+        
+        for i in [0,1,2,3,4,5,6,7,8,9,10,11]:
+            countByActByMois = getCountByTypeByMois(row, 'Nom', (i+1))
+            write_col(ws, ligne, (110+i*2), countByActByMois)
+            write_col(ws, ligne, (111+i*2), getPoucent(countByActByMois, total_nom))
+            
+        
+        write_col(ws, ligne, 134, total_nom)
+        write_col(ws, ligne, 135, getPoucent(total_nom, total))
+      
+        ligne = ligne + 1
+        
+        
+def getTotalGen(ds):
+    
+    value = 0
+    for i in ds['countActivite']:
+        
+        value = value + i[1].values[0]
+
+        
+    return value
+    
+
+def getPoucent( nombre, total):
+    pourcent = 0
+    if total != 0:
+        pourcent =  (nombre*100)/total
+    
+    return pourcent
+
+def getCountByType( row, typeRequete ):
+
+    valeur = 0
+    val = row[(row['typeRecherche']==typeRequete)]['countActivite']
+    if val.size != 0:
+        for ligne in val:
+            valeur = valeur + ligne
+        
+    return valeur
+
+def getCountByMois( row, mois ):
+
+    valeur = 0
+    val = row[(row['mois']==mois)]['countActivite']
+    if val.size != 0:
+        
+        for ligne in val:
+            valeur = valeur + ligne
+            
+        
+    return valeur
+
+def getCount( row ):
+
+    valeur = 0
+    val = row['countActivite']
+    if val.size != 0:
+        
+        for ligne in val:
+            valeur = valeur + ligne
+            
+        
+    return valeur
+
+    
+def getCountByTypeByMois( row, typeRequete, mois ):
+
+    valeur = 0
+    val = row[(row['typeRecherche']==typeRequete)&(row['mois']==mois)]['countActivite']
+    if val.size != 0:
+        valeur = val.values[0]
+        
+    return valeur
+    
+    
+font0 = xlwt.Font()
+font0.name = 'Times New Roman'
+font0.colour_index = 2
+font0.bold = True
+
+style0 = xlwt.XFStyle()
+style0.font = font0
+
+style1 = xlwt.XFStyle()
+style1.num_format_str = 'D-MMM-YY'
+
+wb = xlwt.Workbook(encoding='utf-8')
+
+ws_all = wb.add_sheet('toutes recherches')
+ws_classique = wb.add_sheet('recherches classiques')
+ws_geo = wb.add_sheet('recherches géolocalisées')
+ws_proxy = wb.add_sheet('recherches à proximité')
+
+
+
+
+write_sheet(ws_all, all)
+
+write_sheet(ws_classique, classique)
+write_sheet(ws_geo, geoloc)
+write_sheet(ws_proxy, proxy)
+
+wb.save('/home/bia/kpi/KPI_DSEM_TOP_Activite_reponse.xls')

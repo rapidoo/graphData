@@ -1,0 +1,27 @@
+{
+  "partitionDeps": [
+    {
+      "in": "requeteEBP",
+      "out": "requeteEBP_filter",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "requeteEBP"
+  ],
+  "outputs": [
+    "requeteEBP_filter"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "dev",
+    "filter",
+    "BUC"
+  ]
+}

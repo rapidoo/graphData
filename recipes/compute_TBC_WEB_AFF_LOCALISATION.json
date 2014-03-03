@@ -1,0 +1,36 @@
+{
+  "partitionDeps": [
+    {
+      "in": "BlocLR_Code_3",
+      "out": "TBC_WEB_AFF_LOCALISATION",
+      "idim": "day",
+      "odim": "month",
+      "func": "whole_month",
+      "params": {}
+    },
+    {
+      "in": "BlocLR_XY_3",
+      "out": "TBC_WEB_AFF_LOCALISATION",
+      "idim": "day",
+      "odim": "month",
+      "func": "whole_month",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "BlocLR_Code_3",
+    "BlocLR_XY_3"
+  ],
+  "outputs": [
+    "TBC_WEB_AFF_LOCALISATION"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "BUC",
+    "mobile",
+    "AFF_LOCALISATION"
+  ]
+}

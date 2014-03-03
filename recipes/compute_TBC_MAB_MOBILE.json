@@ -1,0 +1,36 @@
+{
+  "partitionDeps": [
+    {
+      "in": "TBC_MAB_CBI",
+      "out": "TBC_MAB_MOBILE",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "TBC_MAB_MIDAS",
+      "out": "TBC_MAB_MOBILE",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "TBC_MAB_CBI",
+    "TBC_MAB_MIDAS"
+  ],
+  "outputs": [
+    "TBC_MAB_MOBILE"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "hive",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "aggregator",
+    "mobile",
+    "gen"
+  ]
+}

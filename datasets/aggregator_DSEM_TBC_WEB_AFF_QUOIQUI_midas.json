@@ -1,0 +1,84 @@
+{
+  "name": "aggregator_DSEM_TBC_WEB_AFF_QUOIQUI_midas",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_root",
+    "path": "/input_data/aggregator"
+  },
+  "checks": [],
+  "managed": false,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "escapeChar": "\\",
+    "quoteChar": "\"",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "charset": "iso-8859-15",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "|"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "col_0",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_1",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_2",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_3",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_4",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_5",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_6",
+        "type": "string",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "filePathPattern": "/%Y/%M/%D/.*",
+    "ignoreNonMatchingFile": false,
+    "dimensions": [
+      {
+        "name": "day",
+        "type": "time",
+        "params": {
+          "period": "DAY"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "QUOIQUI",
+    "DSEM",
+    "creator_admin",
+    "midas",
+    "AFF",
+    "WEB",
+    "TBC"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "partitionDeps": [
+    {
+      "in": "requete_pro",
+      "out": "KPI_TOP_Activite_recherche",
+      "idim": "day",
+      "odim": "date",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "rubriques",
+    "requete_pro"
+  ],
+  "outputs": [
+    "KPI_TOP_Activite_recherche"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "TOP",
+    "Activite",
+    "recherche",
+    "KPI"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "partitionDeps": [
+    {
+      "in": "requete_filter",
+      "out": "KPI_TB_recherche",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "requete_filter"
+  ],
+  "outputs": [
+    "KPI_TB_recherche"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "KPI",
+    "TB",
+    "recherche"
+  ]
+}

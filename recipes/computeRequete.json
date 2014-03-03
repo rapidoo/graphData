@@ -1,0 +1,27 @@
+{
+  "partitionDeps": [
+    {
+      "in": "mobile_requete",
+      "out": "requete_filter",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "mobile_requete"
+  ],
+  "outputs": [
+    "requete_filter"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "BUC",
+    "dev",
+    "Mobile"
+  ]
+}

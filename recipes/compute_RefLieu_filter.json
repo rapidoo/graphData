@@ -1,0 +1,17 @@
+{
+  "partitionDeps": [],
+  "inputs": [
+    "RefLieu"
+  ],
+  "outputs": [
+    "RefLieu_filter"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "AFF_LOCALISATION",
+    "GEOLIVE"
+  ]
+}

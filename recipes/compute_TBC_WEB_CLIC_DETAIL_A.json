@@ -1,0 +1,36 @@
+{
+  "partitionDeps": [
+    {
+      "in": "requete_pro",
+      "out": "TBC_WEB_CLIC_DETAIL_A",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "PDM_event",
+      "out": "TBC_WEB_CLIC_DETAIL_A",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "requete_pro",
+    "PDM_event"
+  ],
+  "outputs": [
+    "TBC_WEB_CLIC_DETAIL_A"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "BUC",
+    "DETAIL",
+    "CLIC_TOTAUX"
+  ]
+}

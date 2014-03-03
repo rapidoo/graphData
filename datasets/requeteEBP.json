@@ -1,0 +1,215 @@
+{
+  "name": "requeteEBP",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_root",
+    "path": "/input_data/mobile"
+  },
+  "checks": [],
+  "managed": true,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "1",
+    "escapeChar": "\\",
+    "quoteChar": "\"",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "true",
+    "separator": "|"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "H",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "idClientCI",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "typeClientCI",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "versionClientCI",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "idPartenaire",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "idOperateur",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "idVisiteur",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "versionOS",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "typeOS",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "typeNavigateur",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "idVisite",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "nidRecherche",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "nidRequete",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "idPortail",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "idTerminal",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "tailleEcran",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "idSourcePartageBP",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "horodateRequete",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "dureeRequete",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "dureeMaximaleRequete",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "listeNumerosEtablissement",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "numeroEtablissement",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "nidEtablissement",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "typeAppelBonPlan",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "nombreBonsPlan",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "idBloc",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NumeroAnnonceur",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CodeLocaliteParution",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "codeLocaliteInstallation",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "idBonPlan",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "ListeCodesAN9",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "nidPage",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "nidBloc",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "codeRetourEBP",
+        "type": "string",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "filePathPattern": "/%Y/%M/%D/.*_RequeteEBP.*",
+    "ignoreNonMatchingFile": false,
+    "dimensions": [
+      {
+        "name": "day",
+        "type": "time",
+        "params": {
+          "period": "DAY"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "brut",
+    "iphone v2",
+    "mobile"
+  ]
+}

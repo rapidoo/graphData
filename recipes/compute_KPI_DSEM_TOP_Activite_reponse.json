@@ -1,0 +1,30 @@
+{
+  "partitionDeps": [
+    {
+      "in": "blocLR_pro",
+      "out": "KPI_DSEM_TOP_Activite_reponse",
+      "idim": "day",
+      "odim": "date",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "rubriques",
+    "blocLR_pro"
+  ],
+  "outputs": [
+    "KPI_DSEM_TOP_Activite_reponse"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "KPI",
+    "DSEM",
+    "top",
+    "activite",
+    "reponse"
+  ]
+}

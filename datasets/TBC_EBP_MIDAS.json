@@ -1,0 +1,79 @@
+{
+  "name": "TBC_EBP_MIDAS",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_root",
+    "path": "/projects/aggregator/input_data/midas/tbc_ebp"
+  },
+  "checks": [],
+  "managed": false,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "escapeChar": "\\",
+    "quoteChar": "\"",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": ";"
+  },
+  "schema": {
+    "userModified": true,
+    "columns": [
+      {
+        "name": "ID_EPJ",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "ID_BP",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "SOURCE",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "DA_EVENT",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NO_AFFICHAGE",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "NO_CLIC",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "NO_ACTIVATION",
+        "type": "int",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "filePathPattern": "/%Y/%M/%D/.*",
+    "ignoreNonMatchingFile": false,
+    "dimensions": [
+      {
+        "name": "day",
+        "type": "time",
+        "params": {
+          "period": "DAY"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "aggregator",
+    "mobile"
+  ]
+}

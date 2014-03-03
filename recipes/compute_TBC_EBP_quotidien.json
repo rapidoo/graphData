@@ -1,0 +1,36 @@
+{
+  "partitionDeps": [
+    {
+      "in": "PDM_event",
+      "out": "TBC_EBP_quotidien",
+      "idim": "day",
+      "odim": "day",
+      "func": "current_month",
+      "params": {}
+    },
+    {
+      "in": "requeteEBP_filter",
+      "out": "TBC_EBP_quotidien",
+      "idim": "day",
+      "odim": "day",
+      "func": "current_month",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "PDM_event",
+    "requeteEBP_filter"
+  ],
+  "outputs": [
+    "TBC_EBP_quotidien"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "BUC",
+    "dev",
+    "genCube"
+  ]
+}

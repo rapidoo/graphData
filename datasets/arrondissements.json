@@ -1,0 +1,54 @@
+{
+  "name": "arrondissements",
+  "type": "HDFS",
+  "params": {
+    "connection": "hadoop",
+    "path": "${hdfsroot}/arrondissements"
+  },
+  "checks": [],
+  "managed": false,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "escapeChar": "\\",
+    "quoteChar": "\"",
+    "style": "escape_only_no_quote",
+    "skipRowsAfterHeader": "0",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "true",
+    "separator": ";"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "loc",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "latitude",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "longitude",
+        "type": "string",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "ignoreNonMatchingFile": false,
+    "dimensions": []
+  },
+  "tags": [
+    "creator_user"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "partitionDeps": [
+    {
+      "in": "geolive_mobile_quiquoi",
+      "out": "geolive_mobile",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "geolive_mobile_rubrique",
+      "out": "geolive_mobile",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "verticales",
+    "geolive_mobile_quiquoi",
+    "geolive_mobile_rubrique"
+  ],
+  "outputs": [
+    "geolive_mobile"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "GEOLIVE",
+    "genCube"
+  ]
+}

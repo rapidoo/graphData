@@ -1,0 +1,33 @@
+{
+  "partitionDeps": [
+    {
+      "in": "requete_pro",
+      "out": "TBC_POLPO_MOIS",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "blocLR_pro",
+      "out": "TBC_POLPO_MOIS",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "RefLieu_filter",
+    "requete_pro",
+    "blocLR_pro"
+  ],
+  "outputs": [
+    "TBC_POLPO_MOIS"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": []
+}

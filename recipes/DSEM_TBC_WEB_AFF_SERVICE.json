@@ -1,0 +1,36 @@
+{
+  "partitionDeps": [
+    {
+      "in": "AFF_SERVICE_MONTH_CBI",
+      "out": "DSEM_TBC_WEB_AFF_SERVICE_OP",
+      "idim": "month",
+      "odim": "month",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "AFF_SERVICE_MONTH_MIDAS",
+      "out": "DSEM_TBC_WEB_AFF_SERVICE_OP",
+      "idim": "month",
+      "odim": "month",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "AFF_SERVICE_MONTH_CBI",
+    "AFF_SERVICE_MONTH_MIDAS"
+  ],
+  "outputs": [
+    "DSEM_TBC_WEB_AFF_SERVICE_OP"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "hive",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "aggregator",
+    "genKPI",
+    "AFF_SERVICE"
+  ]
+}

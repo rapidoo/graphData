@@ -1,0 +1,26 @@
+{
+  "partitionDeps": [
+    {
+      "in": "KPI_POLEPO_BlocLR_CODE",
+      "out": "BUC_CUBE_POLEPO_STEP1",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "KPI_POLEPO_BlocLR_CODE",
+    "BUC_REFERENTIEL_CUBE_POLEPO"
+  ],
+  "outputs": [
+    "BUC_CUBE_POLEPO_STEP1"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "POLEPO"
+  ]
+}

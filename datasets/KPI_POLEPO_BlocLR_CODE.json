@@ -1,0 +1,76 @@
+{
+  "name": "KPI_POLEPO_BlocLR_CODE",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_managed",
+    "path": "/KPI_POLEPO_BlocLR_CODE"
+  },
+  "checks": [],
+  "managed": true,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "arrayItemSeparator": "\u0002",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "\t",
+    "mapKeySeparator": "\u0002"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "NO_CLI",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "IDBLOC",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "CO_AN9",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "NOMLOCALITE",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "IDDEPARTEMENT",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "CODELIEU",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "filePathPattern": "/%Y/%M/%D/.*",
+    "ignoreNonMatchingFile": false,
+    "dimensions": [
+      {
+        "name": "day",
+        "type": "time",
+        "params": {
+          "period": "DAY"
+        }
+      }
+    ]
+  },
+  "tags": []
+}

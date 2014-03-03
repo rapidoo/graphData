@@ -1,0 +1,29 @@
+{
+  "partitionDeps": [
+    {
+      "in": "requete_pro",
+      "out": "KPI_Marque",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "REFTHESAURUSMARQUE",
+    "requete_pro"
+  ],
+  "outputs": [
+    "KPI_Marque"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "marketing",
+    "marque",
+    "cube",
+    "KPI"
+  ]
+}

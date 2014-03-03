@@ -1,0 +1,59 @@
+{
+  "name": "BUC_REFERENTIEL_CUBE_POLEPO",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_managed",
+    "path": "/BUC_REFERENTIEL_CUBE_POLEPO"
+  },
+  "checks": [],
+  "managed": true,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "arrayItemSeparator": "\u0002",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "\t",
+    "mapKeySeparator": "\u0002"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "NO_CLI",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CODE_AN9",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "LIBELLE_AN9",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "DA_DEB_PARUT",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "DA_FIN_PARUT",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "ignoreNonMatchingFile": false,
+    "dimensions": []
+  },
+  "tags": []
+}

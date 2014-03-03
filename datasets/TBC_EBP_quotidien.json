@@ -1,0 +1,81 @@
+{
+  "name": "TBC_EBP_quotidien",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_managed",
+    "path": "/TBC_EBP_quotidien"
+  },
+  "checks": [],
+  "managed": true,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "arrayItemSeparator": "\u0002",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "\t",
+    "mapKeySeparator": "\u0002"
+  },
+  "schema": {
+    "userModified": true,
+    "columns": [
+      {
+        "name": "ID_EPJ",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "ID_BP",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "SOURCE",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "DA_EVENT",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NO_AFFICHAGE",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "NO_CLIC",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "NO_ACTIVATION",
+        "type": "int",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "filePathPattern": "/%Y/%M/%D/.*",
+    "ignoreNonMatchingFile": false,
+    "dimensions": [
+      {
+        "name": "day",
+        "type": "time",
+        "params": {
+          "period": "DAY"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "BUC",
+    "Cube",
+    "dev",
+    "Mobile"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "partitionDeps": [
+    {
+      "in": "requeteOAS",
+      "out": "requeteOAS_filter",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "requeteOAS"
+  ],
+  "outputs": [
+    "requeteOAS_filter"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "mobile",
+    "BUC",
+    "dev"
+  ]
+}

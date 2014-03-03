@@ -1,0 +1,28 @@
+{
+  "partitionDeps": [
+    {
+      "in": "requete_pro",
+      "out": "PTCGeolocalisation",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "RefLieu_filter",
+    "requete_pro"
+  ],
+  "outputs": [
+    "PTCGeolocalisation"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "BUC",
+    "mobile",
+    "AFF_LOCALISATION"
+  ]
+}

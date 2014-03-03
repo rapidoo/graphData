@@ -1,0 +1,26 @@
+{
+  "partitionDeps": [
+    {
+      "in": "KPI_TOP_Activite_recherche",
+      "out": "genTopActiviteRechercheOutput",
+      "idim": "date",
+      "odim": "date",
+      "func": "whole_month",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "KPI_TOP_Activite_recherche"
+  ],
+  "outputs": [
+    "genTopActiviteRechercheOutput"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "python",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "genXLS",
+    "KPI"
+  ]
+}

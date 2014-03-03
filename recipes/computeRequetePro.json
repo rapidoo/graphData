@@ -1,0 +1,23 @@
+{
+  "partitionDeps": [
+    {
+      "in": "requete_filter",
+      "out": "requete_pro",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "requete_filter"
+  ],
+  "outputs": [
+    "requete_pro"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": []
+}

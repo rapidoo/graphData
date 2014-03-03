@@ -1,0 +1,25 @@
+{
+  "partitionDeps": [
+    {
+      "in": "TBC_WEB_CLIC_DETAIL_A",
+      "out": "TBC_WEB_CLIC_TOTAUX",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "TBC_WEB_CLIC_DETAIL_A"
+  ],
+  "outputs": [
+    "TBC_WEB_CLIC_TOTAUX"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "CLIC_TOTAUX"
+  ]
+}

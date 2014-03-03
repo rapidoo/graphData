@@ -1,0 +1,40 @@
+{
+  "name": "aggregator_couple_audience_output",
+  "type": "Filesystem",
+  "params": {
+    "connection": "filesystem_managed",
+    "path": "/aggregator_couple_audience_output"
+  },
+  "checks": [],
+  "managed": true,
+  "formatType": "csv",
+  "formatParams": {
+    "quoteChar": "\"",
+    "escapeChar": "\\",
+    "style": "unix",
+    "charset": "utf8",
+    "arrayMapFormat": "json",
+    "parseHeaderRow": "false",
+    "separator": "\t"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": []
+  },
+  "partitioning": {
+    "filePathPattern": "/couple_audience_%Ym%M\\.txt",
+    "ignoreNonMatchingFile": false,
+    "dimensions": [
+      {
+        "name": "date",
+        "type": "time",
+        "params": {
+          "period": "MONTH"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "dummy"
+  ]
+}

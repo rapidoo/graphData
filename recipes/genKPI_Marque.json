@@ -1,0 +1,26 @@
+{
+  "partitionDeps": [
+    {
+      "in": "KPI_Marque",
+      "out": "KPI_Marque_output",
+      "idim": "day",
+      "odim": "day",
+      "func": "whole_month",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "KPI_Marque"
+  ],
+  "outputs": [
+    "KPI_Marque_output"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "python",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "genXLS",
+    "KPI"
+  ]
+}

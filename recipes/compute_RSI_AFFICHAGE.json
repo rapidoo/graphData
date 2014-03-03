@@ -1,0 +1,34 @@
+{
+  "partitionDeps": [
+    {
+      "in": "BlocLR_Code_RSI_AFF_raw",
+      "out": "RSI_AFFICHAGE",
+      "idim": "day",
+      "odim": "month",
+      "func": "whole_month",
+      "params": {}
+    },
+    {
+      "in": "BlocLR_XY_RSI_AFF_raw",
+      "out": "RSI_AFFICHAGE",
+      "idim": "day",
+      "odim": "month",
+      "func": "whole_month",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "BlocLR_Code_RSI_AFF_raw",
+    "BlocLR_XY_RSI_AFF_raw"
+  ],
+  "outputs": [
+    "RSI_AFFICHAGE"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "hive",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "RSI"
+  ]
+}

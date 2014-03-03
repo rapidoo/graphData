@@ -1,0 +1,28 @@
+{
+  "partitionDeps": [
+    {
+      "in": "geolive",
+      "out": "geolive_loc",
+      "idim": "time",
+      "odim": "time",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "geolive",
+    "refloc",
+    "verticales",
+    "region_dept"
+  ],
+  "outputs": [
+    "geolive_loc"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "hive",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "GEOLIVE"
+  ]
+}

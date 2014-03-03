@@ -1,0 +1,26 @@
+{
+  "partitionDeps": [
+    {
+      "in": "blocLR_filter",
+      "out": "blocLR_pro",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "blocLR_filter"
+  ],
+  "outputs": [
+    "blocLR_pro"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "dev",
+    "Mobile"
+  ]
+}

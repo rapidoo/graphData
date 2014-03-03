@@ -1,0 +1,25 @@
+{
+  "partitionDeps": [
+    {
+      "in": "KPI_DSEM_TOP_Activite_reponse",
+      "out": "ToActiviteReponseXLS",
+      "idim": "date",
+      "odim": "date",
+      "func": "whole_month",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "KPI_DSEM_TOP_Activite_reponse"
+  ],
+  "outputs": [
+    "ToActiviteReponseXLS"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "python",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "KPI"
+  ]
+}

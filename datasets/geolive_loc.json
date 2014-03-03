@@ -1,0 +1,113 @@
+{
+  "name": "geolive_loc",
+  "type": "HDFS",
+  "params": {
+    "connection": "hadoop",
+    "path": "${hdfsroot}/geolive_loc"
+  },
+  "checks": [],
+  "managed": true,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "style": "escape_only_no_quote",
+    "skipRowsAfterHeader": "0",
+    "arrayItemSeparator": "\u0002",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "|",
+    "mapKeySeparator": "\u0002"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "ts",
+        "type": "bigint",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "date_ts",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "service",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "rubriques",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "quiQuoi",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "ou",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "ou_loc",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "ou_dept",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "ou_region",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "ou_arrondissement",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "longitude",
+        "type": "float",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "latitude",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "filePathPattern": "/dt\u003d%Y-%M-%D/.*",
+    "ignoreNonMatchingFile": false,
+    "dimensions": [
+      {
+        "name": "time",
+        "type": "time",
+        "params": {
+          "period": "DAY"
+        }
+      }
+    ]
+  },
+  "tags": []
+}

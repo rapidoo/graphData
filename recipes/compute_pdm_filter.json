@@ -1,0 +1,17 @@
+{
+  "partitionDeps": [],
+  "inputs": [
+    "PDM"
+  ],
+  "outputs": [
+    "pdm_filter"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "filter",
+    "TYPECLIC"
+  ]
+}

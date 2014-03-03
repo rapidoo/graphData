@@ -1,0 +1,95 @@
+{
+  "name": "DSEM_TBC_WEB_CLIC_DETAIL",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_root",
+    "path": "/input_data/aggregator/midas"
+  },
+  "checks": [],
+  "managed": false,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "escapeChar": "\\",
+    "quoteChar": "\"",
+    "style": "excel",
+    "skipRowsAfterHeader": "0",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "|"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "col_0",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_1",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_2",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_3",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_4",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_5",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_6",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_7",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_8",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_9",
+        "type": "string",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "filePathPattern": "/%Y/%M/DSEM_TBC_WEB_CLIC_DETAIL.*",
+    "ignoreNonMatchingFile": false,
+    "dimensions": [
+      {
+        "name": "day",
+        "type": "time",
+        "params": {
+          "period": "MONTH"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "BUC",
+    "Output",
+    "mobile"
+  ]
+}

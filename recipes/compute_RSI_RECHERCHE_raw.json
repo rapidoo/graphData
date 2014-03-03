@@ -1,0 +1,35 @@
+{
+  "partitionDeps": [
+    {
+      "in": "PTCGeolocalisation",
+      "out": "RSI_RECHERCHE_raw",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "requete_pro",
+      "out": "RSI_RECHERCHE_raw",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "PTCGeolocalisation",
+    "RefLieu_filter",
+    "requete_pro"
+  ],
+  "outputs": [
+    "RSI_RECHERCHE_raw"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "RSI"
+  ]
+}

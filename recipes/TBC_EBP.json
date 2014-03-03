@@ -1,0 +1,35 @@
+{
+  "partitionDeps": [
+    {
+      "in": "TBC_EBP_MIDAS",
+      "out": "TBC_EBP_OP",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "TBC_EBP_CBI",
+      "out": "TBC_EBP_OP",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "TBC_EBP_MIDAS",
+    "TBC_EBP_CBI"
+  ],
+  "outputs": [
+    "TBC_EBP_OP"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "hive",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "aggregator",
+    "genKPI"
+  ]
+}

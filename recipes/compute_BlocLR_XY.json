@@ -1,0 +1,34 @@
+{
+  "partitionDeps": [
+    {
+      "in": "PTCGeolocalisation",
+      "out": "BlocLR_XY_2",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "TBC_WEB_AFF_LOCALISATION_BlocLR_XY",
+      "out": "BlocLR_XY_2",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "PTCGeolocalisation",
+    "TBC_WEB_AFF_LOCALISATION_BlocLR_XY"
+  ],
+  "outputs": [
+    "BlocLR_XY_2"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "AFF_LOCALISATION"
+  ]
+}

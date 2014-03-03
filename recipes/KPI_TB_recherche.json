@@ -1,0 +1,26 @@
+{
+  "partitionDeps": [
+    {
+      "in": "KPI_TB_recherche",
+      "out": "KPI_TB_recherche_Faux_Dataset",
+      "idim": "day",
+      "odim": "month",
+      "func": "whole_month",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "KPI_TB_recherche"
+  ],
+  "outputs": [
+    "KPI_TB_recherche_Faux_Dataset"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "python",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "KPI",
+    "genXLS"
+  ]
+}

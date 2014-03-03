@@ -1,0 +1,25 @@
+{
+  "partitionDeps": [
+    {
+      "in": "TBC_WEB_CLIC_DETAIL_FINAL",
+      "out": "CLIC_DETAIL_MONTH",
+      "idim": "day",
+      "odim": "month",
+      "func": "whole_month",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "TBC_WEB_CLIC_DETAIL_FINAL"
+  ],
+  "outputs": [
+    "CLIC_DETAIL_MONTH"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "hive",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "DETAIL"
+  ]
+}

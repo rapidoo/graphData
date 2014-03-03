@@ -1,0 +1,62 @@
+{
+  "partitionDeps": [
+    {
+      "in": "requeteEBP_filter",
+      "out": "TBC_MAB",
+      "idim": "day",
+      "odim": "day",
+      "func": "sliding_days",
+      "params": {
+        "firstDay": "-30"
+      }
+    },
+    {
+      "in": "requeteOAS_filter",
+      "out": "TBC_MAB",
+      "idim": "day",
+      "odim": "day",
+      "func": "sliding_days",
+      "params": {
+        "firstDay": "-30"
+      }
+    },
+    {
+      "in": "PDM_event",
+      "out": "TBC_MAB",
+      "idim": "day",
+      "odim": "day",
+      "func": "sliding_days",
+      "params": {
+        "firstDay": "-30"
+      }
+    },
+    {
+      "in": "blocLR_pro",
+      "out": "TBC_MAB",
+      "idim": "day",
+      "odim": "day",
+      "func": "sliding_days",
+      "params": {
+        "firstDay": "-30"
+      }
+    }
+  ],
+  "inputs": [
+    "requeteEBP_filter",
+    "requeteOAS_filter",
+    "PDM_event",
+    "blocLR_pro"
+  ],
+  "outputs": [
+    "TBC_MAB"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "mobile",
+    "BUC",
+    "dev"
+  ]
+}

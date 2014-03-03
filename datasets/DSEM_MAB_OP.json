@@ -1,0 +1,73 @@
+{
+  "name": "DSEM_MAB_OP",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_managed",
+    "path": "/output_data/aggregator/quotidien"
+  },
+  "checks": [],
+  "managed": true,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "style": "escape_only_no_quote",
+    "skipRowsAfterHeader": "0",
+    "arrayItemSeparator": "\u0002",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "\t",
+    "mapKeySeparator": "\u0002"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "NO_CLI",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NO_PRODUIT",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "NO_COMPTEUR",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "NO_EXPIRATION",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "DA_EXPIRATION",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "DA_TECHNIQUE",
+        "type": "string",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "filePathPattern": "/%Y/%M/%D/.*",
+    "ignoreNonMatchingFile": false,
+    "dimensions": [
+      {
+        "name": "day",
+        "type": "time",
+        "params": {
+          "period": "DAY"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "aggregator"
+  ]
+}

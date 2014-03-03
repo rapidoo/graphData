@@ -1,0 +1,34 @@
+{
+  "partitionDeps": [
+    {
+      "in": "TBC_WEB_AFF_LOCALISATION_BlocLR_XY",
+      "out": "KPI_POLEPO_BlocLR_XY",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "PTCGeolocalisation",
+      "out": "KPI_POLEPO_BlocLR_XY",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "TBC_WEB_AFF_LOCALISATION_BlocLR_XY",
+    "PTCGeolocalisation"
+  ],
+  "outputs": [
+    "KPI_POLEPO_BlocLR_XY"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "POLEPO"
+  ]
+}

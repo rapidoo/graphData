@@ -1,0 +1,15 @@
+{
+  "partitionDeps": [],
+  "inputs": [],
+  "outputs": [],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "dev",
+    "Mobile",
+    "rapport divers",
+    "genRapportDivers"
+  ]
+}

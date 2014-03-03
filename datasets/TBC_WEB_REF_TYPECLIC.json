@@ -1,0 +1,62 @@
+{
+  "name": "TBC_WEB_REF_TYPECLIC",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_managed",
+    "path": "/TBC_WEB_REF_TYPECLIC"
+  },
+  "checks": [],
+  "managed": true,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "arrayItemSeparator": "\u0002",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "\t",
+    "mapKeySeparator": "\u0002"
+  },
+  "schema": {
+    "userModified": true,
+    "columns": [
+      {
+        "name": "CO_SUPPORT",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "CO_TYPE_CLIC",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "CO_TYPE",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "LI_TYPE_CLIC",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "DA_DEBUT",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "DA_FIN",
+        "type": "string",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "ignoreNonMatchingFile": false,
+    "dimensions": []
+  },
+  "tags": []
+}

@@ -1,0 +1,44 @@
+{
+  "partitionDeps": [
+    {
+      "in": "CLIC_TOTAUX_MONTH_CBI",
+      "out": "DSEM_TBC_WEB_CLIC_TOTAUX_OP",
+      "idim": "month",
+      "odim": "month",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "CLIC_TOTAUX_MONTH_MIDAS",
+      "out": "DSEM_TBC_WEB_CLIC_TOTAUX_OP",
+      "idim": "month",
+      "odim": "month",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "CLIC_TOTAUX_MONTH_ESTIME",
+      "out": "DSEM_TBC_WEB_CLIC_TOTAUX_OP",
+      "idim": "month",
+      "odim": "month",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "CLIC_TOTAUX_MONTH_CBI",
+    "CLIC_TOTAUX_MONTH_MIDAS",
+    "CLIC_TOTAUX_MONTH_ESTIME"
+  ],
+  "outputs": [
+    "DSEM_TBC_WEB_CLIC_TOTAUX_OP"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "hive",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "aggregator",
+    "genKPI"
+  ]
+}

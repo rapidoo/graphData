@@ -1,0 +1,44 @@
+{
+  "name": "region_dept",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_root",
+    "path": "/input_data/referentiels/region_dept.csv"
+  },
+  "checks": [],
+  "managed": false,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "escapeChar": "\\",
+    "quoteChar": "\"",
+    "style": "escape_only_no_quote",
+    "skipRowsAfterHeader": "0",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "true",
+    "separator": "\t"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "cdsdep",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "cdsreg",
+        "type": "string",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "ignoreNonMatchingFile": false,
+    "dimensions": []
+  },
+  "tags": [
+    "creator_user"
+  ]
+}

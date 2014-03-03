@@ -1,0 +1,26 @@
+{
+  "partitionDeps": [
+    {
+      "in": "aggregator_couple_audience",
+      "idim": "date",
+      "odim": "date",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "aggregator_couple_audience"
+  ],
+  "outputs": [
+    "aggregator_couple_audience_output"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "python",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "aggregator",
+    "couple audience",
+    "recipe"
+  ]
+}

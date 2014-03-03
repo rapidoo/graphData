@@ -1,0 +1,27 @@
+{
+  "partitionDeps": [
+    {
+      "in": "AUDIENCE_MOBILE_CBI",
+      "out": "AUDIENCE_MOBILE_CBI_MONTH",
+      "idim": "day",
+      "odim": "month",
+      "func": "whole_month",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "AUDIENCE_MOBILE_CBI"
+  ],
+  "outputs": [
+    "AUDIENCE_MOBILE_CBI_MONTH"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "hive",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "dev",
+    "genRapportDivers",
+    "rapport divers"
+  ]
+}

@@ -1,0 +1,286 @@
+{
+  "name": "blocLR_filter",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_managed",
+    "path": "/blocLR_filter"
+  },
+  "checks": [],
+  "managed": true,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "arrayItemSeparator": "\u0002",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "\t",
+    "mapKeySeparator": "\u0002"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "H",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "IdClient",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "TypeClient",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "VersionClient",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "Partenaire",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "Operateur",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "VisitorID",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "VersionOS",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "TypeOS",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "Navigateur",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "IDSession",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "IDRecherche",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "IDRequete",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "SourceRecherche",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "methodeSaisieOu",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "methodeSaisieQuiQuoi",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "Portail",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "Handset",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "PageAffichee",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "Localite",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "precision",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "Horodate",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "Duree",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NumReqPertimm",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NumOrdreBlocDansListeReponse",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NumAnnonceur",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "Denomination",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "ComplementDenom",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "Prenom",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "ListeCodesAN9",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CodeLocParution",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NumArrondissement",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "TypeBandeau",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "Distance",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NoteMoyenne",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NombreAvis",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "IdBloc",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "ListeProduitPub",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CritereR",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CritereT",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CritereL",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "UTLP",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "UTLG",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "UTLS",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "UTLC",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "ListeNumTelephone",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "listeNumEtablissement",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "polPo",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "filePathPattern": "/%Y/%M/%D/.*",
+    "ignoreNonMatchingFile": false,
+    "dimensions": [
+      {
+        "name": "day",
+        "type": "time",
+        "params": {
+          "period": "DAY"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "BUC",
+    "filter",
+    "mobile"
+  ]
+}

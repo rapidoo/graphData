@@ -1,0 +1,32 @@
+{
+  "partitionDeps": [
+    {
+      "in": "evenement_filter",
+      "out": "TBC_WEB_APP_SERVICE",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "blocLR_pro",
+      "out": "TBC_WEB_APP_SERVICE",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "evenement_filter",
+    "blocLR_pro"
+  ],
+  "outputs": [
+    "TBC_WEB_APP_SERVICE"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": []
+}

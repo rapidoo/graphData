@@ -1,0 +1,36 @@
+{
+  "partitionDeps": [
+    {
+      "in": "blocLR_pro",
+      "out": "AUDIENCE_MOBILE_CBI",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "requete_pro",
+      "out": "AUDIENCE_MOBILE_CBI",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "blocLR_pro",
+    "requete_pro"
+  ],
+  "outputs": [
+    "AUDIENCE_MOBILE_CBI"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "dev",
+    "genRapportDivers",
+    "rapport divers"
+  ]
+}

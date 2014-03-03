@@ -1,0 +1,108 @@
+{
+  "name": "geolive_mobile_rubrique",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_managed",
+    "path": "/geolive_mobile_rubrique"
+  },
+  "checks": [],
+  "managed": true,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "arrayItemSeparator": "\u0002",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "\t",
+    "mapKeySeparator": "\u0002"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "date_ts",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "service",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "rubriques",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "quiQuoi",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "ou",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "ou_loc",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "ou_dept",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "ou_region",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "ou_arrondissement",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "longitude",
+        "type": "float",
+        "maxLength": 1000
+      },
+      {
+        "name": "latitude",
+        "type": "float",
+        "maxLength": 1000
+      },
+      {
+        "name": "an9",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "typeSource",
+        "type": "string",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "filePathPattern": "/%Y/%M/%D/.*",
+    "ignoreNonMatchingFile": false,
+    "dimensions": [
+      {
+        "name": "day",
+        "type": "time",
+        "params": {
+          "period": "DAY"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "GEOLIVE"
+  ]
+}

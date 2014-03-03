@@ -1,0 +1,86 @@
+{
+  "name": "TBC_WEB_CLIC_DETAIL_A",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_managed",
+    "path": "/evt_req"
+  },
+  "checks": [],
+  "managed": true,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "arrayItemSeparator": "\u0002",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "\t",
+    "mapKeySeparator": "\u0002"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "NO_CLI",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "DA_COMPTEUR",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "codeIdentificationAction",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "typeEvenement",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "groupePage",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "page",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CO_SUPPORT",
+        "type": "int",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "CO_TYPE_CLIC",
+        "type": "int",
+        "comment": "",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "filePathPattern": "/%Y/%M/%D/.*",
+    "ignoreNonMatchingFile": false,
+    "dimensions": [
+      {
+        "name": "day",
+        "type": "time",
+        "params": {
+          "period": "DAY"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "BUC",
+    "mobile"
+  ]
+}

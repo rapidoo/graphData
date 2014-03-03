@@ -1,0 +1,25 @@
+{
+  "partitionDeps": [
+    {
+      "in": "aladin",
+      "out": "geolive",
+      "idim": "time",
+      "odim": "time",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "aladin"
+  ],
+  "outputs": [
+    "geolive"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "GEOLIVE"
+  ]
+}

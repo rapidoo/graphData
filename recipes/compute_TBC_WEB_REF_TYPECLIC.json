@@ -1,0 +1,16 @@
+{
+  "partitionDeps": [],
+  "inputs": [
+    "pdm_filter"
+  ],
+  "outputs": [
+    "TBC_WEB_REF_TYPECLIC"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "TYPECLIC"
+  ]
+}

@@ -1,0 +1,110 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*- 
+
+import dataiku
+from dataiku import pandasutils as pdu
+import pandas as pd
+import csv
+import xlwt
+from datetime import datetime
+from functools import partial
+import numpy as np
+
+# constantes
+libelle = ['Année','Mois','Période','Catégorie de recherche','Type de recherche','Mode géographique', 'type de réponse', 'Recherches']
+
+###################################################################################################################################
+# Ecriture dans XLS
+###################################################################################################################################
+
+# ecrire une cellule
+def write_col( ws, ligne, col, val):
+        ws.write( ligne, col, val,style1)
+
+# ecrire les colonnes dans un onglet excel
+def write_libelle(libelle, sheet):
+    i = 0
+    for lib in libelle :
+            sheet.write(0, i, lib,style0)
+            i = i +1
+
+# ecire une feuille = un onglet
+def write_sheet(sheet, dataframeOnglet):
+    
+    # colonnes
+    write_libelle(libelle, sheet)
+    
+    ligne = 1
+    for indice, row in dataframeOnglet.iterrows():
+
+        ## ecriture de la ligne
+        write_col(sheet, ligne, 0, row['annee'])
+        write_col(sheet, ligne, 1, row['mois'])
+        write_col(sheet, ligne, 2, row['periode'])
+        write_col(sheet, ligne, 3, row['categorieDeRecherche'])
+        write_col(sheet, ligne, 4, row['typeDeRecherche'])
+        write_col(sheet, ligne, 5, row['modeGeographique'])
+        write_col(sheet, ligne, 6, row['typeReponse'])
+        write_col(sheet, ligne, 7, row['countRecherches'])
+
+        ligne = ligne + 1
+
+# à partir d'un mois et d'une année, produit la période
+def addPeriode(x):
+    periode = x['annee'] + '-M'
+    if len(x['mois']) == 1 :
+        periode = periode + '0'
+    periode = periode + x['mois']
+    return periode
+        
+###################################################################################################################################
+# MAIN
+###################################################################################################################################
+
+# load le KPI (managed dataset)
+dataset_dataiku = dataiku.Dataset("KPI_TB_recherche")
+
+#l'option infer_with_pandas False permet de conserver les types du dataset managé
+dataset_brut = dataset_dataiku.get_dataframe(infer_with_pandas=False)
+
+# ajout période
+dataset_brut['periode'] = dataset_brut.apply(addPeriode, axis=1)
+
+# grouper
+ds_group = dataset_brut.groupby(['annee','mois','periode','categorieDeRecherche','typeDeRecherche','modeGeographique','typeReponse'], sort=True)
+
+# additionner
+ds_sum = ds_group.sum()
+
+# flatenner
+ds_final = ds_sum.reset_index()
+
+anneemois = ds_final.iloc[0]['annee']
+anneemois = anneemois + ('0' if len(ds_final.iloc[0]['mois'])==1 else '')
+anneemois = anneemois + ds_final.iloc[0]['mois']
+
+### ecrire le fichier xls
+
+# font
+font0 = xlwt.Font()
+font0.name = 'Times New Roman'
+font0.colour_index = 0
+font0.bold = True
+
+# styles
+style0 = xlwt.XFStyle()
+style0.font = font0
+
+style1 = xlwt.XFStyle()
+
+# encoding UTF-8
+wb = xlwt.Workbook(encoding='utf-8')
+
+# ajout onglet
+ws_iphone = wb.add_sheet('Iphone V2')
+
+# ecrire dans onglet
+write_sheet(ws_iphone, ds_final)
+
+# sauvegarde fichier sortie excel
+wb.save('/home/bia/kpi/TB_recherche_IPhoneV2_' + anneemois + '.xls')

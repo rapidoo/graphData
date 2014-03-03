@@ -1,0 +1,35 @@
+{
+  "partitionDeps": [
+    {
+      "in": "requete_pro",
+      "out": "TBC_POLEPO_MOIS",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "blocLR_pro",
+      "out": "TBC_POLEPO_MOIS",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "requete_pro",
+    "blocLR_pro"
+  ],
+  "outputs": [
+    "TBC_POLEPO_MOIS"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "BUC",
+    "genCube"
+  ]
+}

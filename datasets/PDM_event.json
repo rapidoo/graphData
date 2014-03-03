@@ -1,0 +1,108 @@
+{
+  "name": "PDM_event",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_managed",
+    "path": "/PDM_event"
+  },
+  "checks": [],
+  "managed": true,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "arrayItemSeparator": "\u0002",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "\t",
+    "mapKeySeparator": "\u0002"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "horodate",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "idAnnonceur",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "numeroEtablissement",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "VisitorID",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "IDRecherche",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "typeEvenement",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "codeIdentificationAction",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "groupePage",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "page",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CO_SUPPORT",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "CO_TYPE_CLIC",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "CONTACT_INFO",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "listeParametres",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "filePathPattern": "/%Y/%M/%D/.*",
+    "ignoreNonMatchingFile": false,
+    "dimensions": [
+      {
+        "name": "day",
+        "type": "time",
+        "params": {
+          "period": "DAY"
+        }
+      }
+    ]
+  },
+  "tags": []
+}

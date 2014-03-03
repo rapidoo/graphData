@@ -1,0 +1,26 @@
+{
+  "partitionDeps": [
+    {
+      "in": "TBC_WEB_AFF_LOCALISATION_BlocLR_Code",
+      "out": "BlocLR_Code_2",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "TBC_WEB_AFF_LOCALISATION_BlocLR_Code",
+    "RefLieu_filter"
+  ],
+  "outputs": [
+    "BlocLR_Code_2"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "AFF_LOCALISATION"
+  ]
+}

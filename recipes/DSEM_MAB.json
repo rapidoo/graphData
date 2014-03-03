@@ -1,0 +1,46 @@
+{
+  "partitionDeps": [
+    {
+      "in": "TBC_MAB_ALADIN",
+      "out": "DSEM_MAB_OP",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "TBC_MAB_CBI",
+      "out": "DSEM_MAB_OP",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "TBC_MAB_MIDAS",
+      "out": "DSEM_MAB_OP",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "TBC_MAB_ALADIN",
+    "TBC_MAB_CBI",
+    "TBC_MAB_MIDAS"
+  ],
+  "outputs": [
+    "DSEM_MAB_OP"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "hive",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "aggregator",
+    "mobile",
+    "genKPI",
+    "fixe"
+  ]
+}

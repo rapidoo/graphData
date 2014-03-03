@@ -1,0 +1,25 @@
+{
+  "partitionDeps": [
+    {
+      "in": "blocLR_pro",
+      "out": "TBC_WEB_AFF_SERVICE",
+      "idim": "day",
+      "odim": "month",
+      "func": "whole_month",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "blocLR_pro"
+  ],
+  "outputs": [
+    "TBC_WEB_AFF_SERVICE"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "AFF_SERVICE"
+  ]
+}

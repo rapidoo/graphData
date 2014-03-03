@@ -1,0 +1,71 @@
+{
+  "name": "CLIC_PARTENAIRE_MONTH_ALADIN",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_root",
+    "path": "/projects/aggregator/input_data/aladin/clic_partenaire"
+  },
+  "checks": [],
+  "managed": false,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "escapeChar": "\\",
+    "quoteChar": "\"",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "|"
+  },
+  "schema": {
+    "userModified": true,
+    "columns": [
+      {
+        "name": "NO_CLI",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CO_SUPPORT",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "CO_TYPESTAT",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "DA_COMPTEUR",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NO_COMPTEUR",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "NO_COMPTEUR_ESTIME",
+        "type": "int",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "filePathPattern": "/%Y/%M/.*",
+    "ignoreNonMatchingFile": false,
+    "dimensions": [
+      {
+        "name": "month",
+        "type": "time",
+        "params": {
+          "period": "MONTH"
+        }
+      }
+    ]
+  },
+  "tags": []
+}

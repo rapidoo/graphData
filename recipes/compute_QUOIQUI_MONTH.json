@@ -1,0 +1,25 @@
+{
+  "partitionDeps": [
+    {
+      "in": "TBC_WEB_AFF_QUOIQUI",
+      "out": "QUOIQUI_MONTH",
+      "idim": "day",
+      "odim": "month",
+      "func": "whole_month",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "TBC_WEB_AFF_QUOIQUI"
+  ],
+  "outputs": [
+    "QUOIQUI_MONTH"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "hive",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "QUOIQUI"
+  ]
+}

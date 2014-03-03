@@ -1,0 +1,27 @@
+{
+  "partitionDeps": [
+    {
+      "in": "mobile_BlocLR",
+      "out": "blocLR_filter",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "mobile_BlocLR"
+  ],
+  "outputs": [
+    "blocLR_filter"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "BUC",
+    "dev",
+    "Mobile"
+  ]
+}

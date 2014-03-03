@@ -1,0 +1,45 @@
+{
+  "name": "verticales",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_root",
+    "path": "/input_data/referentiels/verticales"
+  },
+  "checks": [],
+  "managed": false,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "escapeChar": "\\",
+    "quoteChar": "\"",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": ";"
+  },
+  "schema": {
+    "userModified": true,
+    "columns": [
+      {
+        "name": "an9",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "verticale",
+        "type": "string",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "ignoreNonMatchingFile": false,
+    "dimensions": []
+  },
+  "tags": [
+    "creator_user",
+    "GEOLIVE"
+  ]
+}

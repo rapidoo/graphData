@@ -1,0 +1,25 @@
+{
+  "partitionDeps": [
+    {
+      "in": "RSI_RECHERCHE_raw",
+      "out": "RSI_RECHERCHE",
+      "idim": "day",
+      "odim": "month",
+      "func": "whole_month",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "RSI_RECHERCHE_raw"
+  ],
+  "outputs": [
+    "RSI_RECHERCHE"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "hive",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "RSI"
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "name": "aggregator_couple_audience",
+  "type": "Filesystem",
+  "params": {
+    "connection": "filesystem_root",
+    "path": "/opt/bia/aggregator"
+  },
+  "checks": [],
+  "managed": false,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "escapeChar": "\\",
+    "quoteChar": "\"",
+    "style": "excel",
+    "skipRowsAfterHeader": "0",
+    "charset": "iso-8859-15",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "|"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "col_0",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_1",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_2",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_3",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_4",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_5",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_6",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_7",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_8",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_9",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_10",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "col_11",
+        "type": "string",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "filePathPattern": "/couple_audience_%Ym%M\\.txt",
+    "ignoreNonMatchingFile": false,
+    "dimensions": [
+      {
+        "name": "date",
+        "type": "time",
+        "params": {
+          "period": "MONTH"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "aggregator",
+    "couple audience",
+    "creator_admin",
+    "dummy"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "partitionDeps": [
+    {
+      "in": "blocLR_pro",
+      "out": "KPI_POLEPO_BlocLR_CODE",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "RefLieu_filter",
+    "blocLR_pro"
+  ],
+  "outputs": [
+    "KPI_POLEPO_BlocLR_CODE"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "POLEPO"
+  ]
+}

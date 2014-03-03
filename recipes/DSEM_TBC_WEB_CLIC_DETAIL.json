@@ -1,0 +1,35 @@
+{
+  "partitionDeps": [
+    {
+      "in": "CLIC_DETAIL_MONTH_CBI",
+      "out": "DSEM_TBC_WEB_CLIC_DETAIL_OUTPUT",
+      "idim": "month",
+      "odim": "month",
+      "func": "equals",
+      "params": {}
+    },
+    {
+      "in": "CLIC_DETAIL_MONTH_MIDAS",
+      "out": "DSEM_TBC_WEB_CLIC_DETAIL_OUTPUT",
+      "idim": "month",
+      "odim": "month",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "CLIC_DETAIL_MONTH_CBI",
+    "CLIC_DETAIL_MONTH_MIDAS"
+  ],
+  "outputs": [
+    "DSEM_TBC_WEB_CLIC_DETAIL_OUTPUT"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "hive",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "aggregator",
+    "genKPI"
+  ]
+}

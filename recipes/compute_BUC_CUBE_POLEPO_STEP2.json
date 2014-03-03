@@ -1,0 +1,25 @@
+{
+  "partitionDeps": [
+    {
+      "in": "BUC_CUBE_POLEPO_STEP1",
+      "out": "BUC_CUBE_POLEPO_STEP2",
+      "idim": "day",
+      "odim": "day",
+      "func": "current_month",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "BUC_CUBE_POLEPO_STEP1"
+  ],
+  "outputs": [
+    "BUC_CUBE_POLEPO_STEP2"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "hive",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "POLEPO"
+  ]
+}

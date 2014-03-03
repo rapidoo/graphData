@@ -1,0 +1,97 @@
+{
+  "name": "RefLieu_filter",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_managed",
+    "path": "/RefLieu_filter"
+  },
+  "checks": [],
+  "managed": true,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "arrayItemSeparator": "\u0002",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "\t",
+    "mapKeySeparator": "\u0002"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "NOMENMAJUSCULES",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CODELIEU",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "LONGITUDE",
+        "type": "float",
+        "maxLength": 1000
+      },
+      {
+        "name": "LATITUDE",
+        "type": "float",
+        "maxLength": 1000
+      },
+      {
+        "name": "FLAGLOCALITE",
+        "type": "int",
+        "maxLength": 1000
+      },
+      {
+        "name": "IDDEPARTEMENT",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "IDLOCALITE",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "NOMLOCALITE",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "NOMDEPARTEMENT",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "NOMREGION",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      },
+      {
+        "name": "NUMEROARRONDISSEMENT",
+        "type": "string",
+        "comment": "",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "ignoreNonMatchingFile": false,
+    "dimensions": []
+  },
+  "tags": [
+    "BUC",
+    "RSI",
+    "GEOLIVE"
+  ]
+}

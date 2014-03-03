@@ -1,0 +1,89 @@
+{
+  "name": "BUC_REFERENTIEL_BRUT_POLEPO",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_root",
+    "path": "/input_data/referentiels/pole_po/20140205_REF_POLEPOSITIONS.txt"
+  },
+  "checks": [],
+  "managed": false,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "escapeChar": "\\",
+    "quoteChar": "\"",
+    "style": "no_escape_no_quote",
+    "skipRowsAfterHeader": "0",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "true",
+    "separator": "|"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "NO_ETAB",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NO_MILLESIME",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NO_CDE",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CO_DEPT",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NO_RESERVATION",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NO_COML",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CO_SUPP",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "CO_RUB_AN8",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "DA_DEB_PARUT",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "DA_FIN_PARUT",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "DA_CHRGT",
+        "type": "string",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "ignoreNonMatchingFile": false,
+    "dimensions": []
+  },
+  "tags": [
+    "creator_admin"
+  ]
+}

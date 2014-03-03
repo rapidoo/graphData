@@ -1,0 +1,70 @@
+import dataiku
+from dataiku import pandasutils as pdu
+import pandas as pd
+import csv
+import xlwt
+from datetime import datetime
+
+mydataset = dataiku.Dataset("KPI_Marque")
+mydataset_df = mydataset.get_dataframe()
+
+dataset = mydataset_df[mydataset_df['annee']==2014]
+
+dataset_copy = dataset.copy()
+
+grouped = dataset_copy.groupby('CodeMQ')
+
+columns = ['Code MQ', 'Marque', 'Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 
+           'Septembre', 'Octobre', 'Novembre', 'Decembre', 'Cumul annuel']
+
+def getValueByMonth( row, mois ):
+
+    valeur = 0
+    val = row[(row['mois']==mois)]['nombre']
+    if val.size != 0:
+        
+        for ligne in val:
+            valeur = valeur + ligne
+            
+        
+    return valeur
+
+font0 = xlwt.Font()
+font0.name = 'Times New Roman'
+font0.colour_index = 2
+font0.bold = True
+
+style0 = xlwt.XFStyle()
+style0.font = font0
+
+wb = xlwt.Workbook(encoding='utf-8')
+ws = wb.add_sheet('annee courante')
+
+i = 0
+for nom in columns:
+    ws.write(0, i, nom)
+    i = i+1
+
+
+j = 1
+    
+for index, row in grouped:
+
+    #print row
+    ws.write(j, 0, row['CodeMQ'].values[0])
+    ws.write(j, 1, row['Marque'].values[0])
+        
+    i = 2
+    total = 0
+    
+    for mois in range(1, 13):
+        valMois = getValueByMonth(row, mois)
+        ws.write(j, i, valMois)
+        total = total + valMois
+        i = i +1
+
+    ws.write(j,i, total)
+    j = j +1
+    
+
+wb.save('/home/bia/kpi/KPI_Marque.xls')

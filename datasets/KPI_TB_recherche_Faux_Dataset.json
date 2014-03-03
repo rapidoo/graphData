@@ -1,0 +1,80 @@
+{
+  "name": "KPI_TB_recherche_Faux_Dataset",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_managed",
+    "path": "/KPI_TB_recherche_Faux_Dataset"
+  },
+  "checks": [],
+  "managed": true,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "0",
+    "style": "escape_only_no_quote",
+    "skipRowsAfterHeader": "0",
+    "arrayItemSeparator": "\u0002",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "false",
+    "separator": "\t",
+    "mapKeySeparator": "\u0002"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "annee",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "mois",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "typeDeRecherche",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "categorieDeRecherche",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "modeGeographique",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "typeReponse",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "countRecherches",
+        "type": "int",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "filePathPattern": "/%Y/%M/.*",
+    "ignoreNonMatchingFile": false,
+    "dimensions": [
+      {
+        "name": "month",
+        "type": "time",
+        "params": {
+          "period": "MONTH"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "genXLS",
+    "faux dataset",
+    "KPI"
+  ]
+}

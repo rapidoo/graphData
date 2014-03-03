@@ -1,0 +1,73 @@
+{
+  "name": "DSEM_MAB_ALADIN",
+  "type": "HDFS",
+  "params": {
+    "connection": "hdfs_root",
+    "path": "/input_data/aggregator/aladin/quotidien"
+  },
+  "checks": [],
+  "managed": false,
+  "formatType": "csv",
+  "formatParams": {
+    "skipRowsBeforeHeader": "4",
+    "escapeChar": "\\",
+    "quoteChar": "\"",
+    "style": "excel",
+    "skipRowsAfterHeader": "0",
+    "charset": "utf8",
+    "arrayMapFormat": "delimited",
+    "parseHeaderRow": "true",
+    "separator": ";"
+  },
+  "schema": {
+    "userModified": false,
+    "columns": [
+      {
+        "name": "NO_CLI",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NO_PRODUIT",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NO_COMPTEUR",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "NO_EXPIRATION",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "DA_EXPIRATION",
+        "type": "string",
+        "maxLength": 1000
+      },
+      {
+        "name": "DA_TECHNIQUE",
+        "type": "string",
+        "maxLength": 1000
+      }
+    ]
+  },
+  "partitioning": {
+    "filePathPattern": "/%Y/%M/%D/.*",
+    "ignoreNonMatchingFile": false,
+    "dimensions": [
+      {
+        "name": "day",
+        "type": "time",
+        "params": {
+          "period": "DAY"
+        }
+      }
+    ]
+  },
+  "tags": [
+    "aggregator"
+  ]
+}

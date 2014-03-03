@@ -1,0 +1,17 @@
+{
+  "partitionDeps": [],
+  "inputs": [
+    "BUC_REFERENTIEL_BRUT_POLEPO",
+    "rubriques"
+  ],
+  "outputs": [
+    "BUC_REFERENTIEL_CUBE_POLEPO"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "pig",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "POLEPO"
+  ]
+}

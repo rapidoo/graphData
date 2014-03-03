@@ -1,0 +1,27 @@
+{
+  "partitionDeps": [
+    {
+      "in": "BlocLR_XY_2",
+      "out": "BlocLR_XY_3",
+      "idim": "day",
+      "odim": "day",
+      "func": "equals",
+      "params": {}
+    }
+  ],
+  "inputs": [
+    "BlocLR_XY_2"
+  ],
+  "outputs": [
+    "BlocLR_XY_3"
+  ],
+  "neverRecomputeExistingPartitions": false,
+  "type": "hive",
+  "params": {},
+  "updateUser": "admin",
+  "tags": [
+    "BUC",
+    "genCube",
+    "AFF_LOCALISATION"
+  ]
+}
