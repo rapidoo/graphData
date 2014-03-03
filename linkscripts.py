@@ -4,8 +4,8 @@ from py2neo import neo4j
 
 path = './recipes'
 graph_db = neo4j.GraphDatabaseService("http://localhost:7474/db/data/")
-scripts = graph_db.get_or_create_index(neo4j.Node, "Scripts")
-outputs = graph_db.get_or_create_index(neo4j.Relationship, "Outputs")
+datasets = graph_db.get_or_create_index(neo4j.Node, "Dataset")
+recipes = graph_db.get_or_create_index(neo4j.Relationship, "Recipes")
 
 def storeScriptsIntoNeo4j():
 	graph_db.clear()
@@ -17,9 +17,9 @@ def storeScriptsIntoNeo4j():
 				data = json.load(data_file)
 				data_file.close()
 				for input in data['inputs']:
-					inputNode = scripts.get_or_create("script", input, {"script": input})
+					inputNode = datasets.get_or_create("dataset", input, {"dataset": input})
 					for output in data['outputs']:
-						outputNode = scripts.get_or_create("script", output, {"script": output})
-						outputs.create_if_none("recipe",name, (inputNode,"output",outputNode))
+						outputNode = datasets.get_or_create("dataset", output, {"dataset": output})
+						recipes.create_if_none("recipe",name, (inputNode,"recipe",outputNode))
 					
 storeScriptsIntoNeo4j();
