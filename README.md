@@ -1,3 +1,5 @@
+Merci à https://github.com/mlecoq pour l'init de ce POC ;)
+
 une fois que tu as installé Neo4j (2.0.1) - je n'avais travaillé que sur la 1.8 mais la 2.0 déchire grave (sans être rétrocompatible) - 
 que tu l'as lancé 
 > path_to_neo4j/bin/neo4j start
